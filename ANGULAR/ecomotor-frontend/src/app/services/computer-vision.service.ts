@@ -13,7 +13,7 @@ export interface DetectionResponse {
   providedIn: 'root'
 })
 export class ComputerVisionService {
-  private readonly apiBaseUrl = '/api';
+  private readonly apiBaseUrl = 'http://localhost:8000';
 
   constructor(private http: HttpClient) {}
 

@@ -55,18 +55,21 @@
           },
           "defaultConfiguration": "production"
         },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "buildTarget": "ecomotor-frontend:build:production"
-            },
-            "development": {
-              "buildTarget": "ecomotor-frontend:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
+      "serve": {
+  "builder": "@angular-devkit/build-angular:dev-server",
+  "options": {
+    "proxyConfig": "proxy.conf.json"
+  },
+  "configurations": {
+    "production": {
+      "buildTarget": "ecomotor-frontend:build:production"
+    },
+    "development": {
+      "buildTarget": "ecomotor-frontend:build:development"
+    }
+  },
+  "defaultConfiguration": "development"
+},
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n"
         },
