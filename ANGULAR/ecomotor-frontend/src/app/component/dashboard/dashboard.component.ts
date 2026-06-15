@@ -4,11 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { VehiculosService } from '../../services/vehiculos.service';
 import { Router } from '@angular/router';
 import { MantenimientosService } from '../../services/mantenimientos.service';
-//import { EcobotComponent } from '../ecobot/ecobot.component';
+import { EcobotComponent } from '../../ecobot/ecobot.component';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, EcobotComponent],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })

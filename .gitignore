@@ -1,0 +1,5 @@
+NODE/.env
+NODE/node_modules/
+ANGULAR/ecomotor-frontend/node_modules/
+MACHINE_LEARNING/**/__pycache__/
+.env

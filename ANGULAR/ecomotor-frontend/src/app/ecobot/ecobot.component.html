@@ -1,1 +1,48 @@
-<p>ecobot works!</p>
+<section class="ecobot-shell">
+  <header class="ecobot-header">
+    <div>
+      <div class="ecobot-title">EcoBot</div>
+      <div class="ecobot-subtitle">Chat IA con Microsoft Foundry para tu vehículo</div>
+    </div>
+    <button class="btn-clear" type="button" (click)="limpiarChat()">Limpiar chat</button>
+  </header>
+
+  <div class="ecobot-summary" *ngIf="vehiculo">
+    <div class="summary-label">Vehículo seleccionado</div>
+    <div class="summary-row">
+      <span>{{ vehiculo.marca }} {{ vehiculo.modelo }} • {{ vehiculo.placa }}</span>
+      <span>{{ vehiculo.anio }}</span>
+    </div>
+  </div>
+
+  <div class="ecobot-status" *ngIf="!vehiculo">
+    Selecciona un vehículo en el panel para comenzar a preguntar a EcoBot.
+  </div>
+
+  <div id="ecobot-messages" class="ecobot-messages">
+    <div *ngFor="let mensaje of mensajes" [ngClass]="{ 'mensaje-usuario': mensaje.sender === 'user', 'mensaje-bot': mensaje.sender === 'bot' }" class="mensaje-item">
+      <div class="mensaje-texto">{{ mensaje.texto }}</div>
+      <div class="mensaje-meta">{{ mensaje.sender === 'user' ? 'Tú' : 'EcoBot' }} · {{ mensaje.fecha }}</div>
+    </div>
+    <div *ngIf="mensajes.length === 0" class="mensaje-vacio">
+      Escribe una pregunta sobre mantenimiento, eficiencia, emisiones o uso del vehículo.
+    </div>
+  </div>
+
+  <div class="ecobot-footer">
+    <textarea
+      [(ngModel)]="mensajeEntrada"
+      [placeholder]="vehiculo ? 'Pregúntale algo a EcoBot sobre este vehículo...' : 'Selecciona un vehículo primero...'"
+      [disabled]="cargando || !vehiculo"
+      rows="3"
+      class="ecobot-input"></textarea>
+
+    <div class="ecobot-actions">
+      <button class="btn-send" type="button" (click)="enviarMensaje()" [disabled]="cargando || !mensajeEntrada.trim() || !vehiculo">
+        {{ cargando ? 'Enviando...' : 'Enviar' }}
+      </button>
+    </div>
+
+    <div class="ecobot-error" *ngIf="errorTexto">{{ errorTexto }}</div>
+  </div>
+</section>
