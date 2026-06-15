@@ -17,6 +17,8 @@ require('./routes/tiposMantenimiento');
 var ordenesMantenimientoRouter =
 require('./routes/ordenesMantenimiento');
 
+var agenteRouter = require('./routes/agente');
+
 
 var app = express();
 
@@ -44,6 +46,8 @@ app.use('/usuarios', usuariosRouter);
 app.use( '/tipos-mantenimiento', tiposMantenimientoRouter);
 
 app.use('/ordenes-mantenimiento', ordenesMantenimientoRouter);
+
+app.use('/agente', agenteRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

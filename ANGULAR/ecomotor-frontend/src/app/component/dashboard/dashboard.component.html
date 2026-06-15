@@ -1,4 +1,4 @@
- <!-- NAV -->
+<!-- NAV -->
   <nav>
     <div class="nav-logo">Eco<span>motor</span></div>
     <div>
@@ -58,6 +58,9 @@
         </div>
         <div class="sidebar-item" (click)="switchTab('tipos-mantenimiento', $any($event.currentTarget))">
           <span class="icon">🛠️</span> Tipos de mantenimiento
+        </div>
+        <div class="sidebar-item" (click)="switchTab('ecobot', $any($event.currentTarget))">
+         <span class="icon">🤖</span> EcoBot
         </div>
       </div>
 
@@ -288,6 +291,11 @@
               </div>
             </ng-template>
           </div>
+        </div>
+        
+        <!-- TAB: ECOBOT-->
+        <div class="tab-content" id="tab-ecobot">
+          <app-ecobot></app-ecobot>
         </div>
       </div>
     </div>
